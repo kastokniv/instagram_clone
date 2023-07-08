@@ -11,6 +11,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.6"
 gem "redis", "~> 4.0"
+gem 'rubocop', "~> 1.54", require: false
 gem "sassc-rails"
 gem "sprockets-rails"
 gem "stimulus-rails"

@@ -1,32 +1,41 @@
+<% if user_signed_in? %>
+  <%= link_to "Log Out", destroy_user_session_path, data: { "turbo-method": "delete" } %>
+<% end %>
 <div class="vh-100 d-flex justify-content-center align-items-center">
-  <div class="card py-4" style="width: 28rem;">
-    <div class="card-body">
-      <div class="instagram-logo-link"></div>
-      <p class="text-center text-secondary fs-6 fw-semibold">Sign up to see photos and videos of your friends.</p>
-      <h2>Sign up</h2>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div>
+    <div class="card p-4 mb-3" style="width: 28rem;">
+      <div class="card-body">
+        <div class="instagram-logo-link"></div>
+        <p class="text-center text-secondary fs-6 fw-semibold">Sign up to see photos and videos of your friends.</p>
+        <div class="d-flex justify-content-center">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "w-100" }) do |f| %>
+            <div class="mb-3">
+              <%= f.text_field :login, placeholder: "Username or email", autofocus: true, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+              <%= f.password_field :password, placeholder: "Password", autocomplete: "current-password", class: "form-control" %>
+            </div>
+            <% if devise_mapping.rememberable? %>
+              <div class="form-check">
+                <%= f.check_box :remember_me, class: "form-check-input" %>
+                <%= f.label :remember_me, class: "form-check-label" %>
+              </div>
+            <% end %>
+            <div class="mb-3">
+              <%= f.submit "Log in", class: "btn btn-primary insta-primary w-100" %>
+            </div>
+          <% end %>
         </div>
-        <div class="field">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
+        <hr>
+        <div class="d-flex justify-content-center">
+          <%= link_to "Forgot your password?", new_password_path(resource_name), class: "dark-link" %>
         </div>
-        <div class="field">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
-        <div class="actions">
-          <%= f.submit "Sign up" %>
-        </div>
-      <% end %>
-      <%= render "devise/shared/links" %>
-      <hr>
+      </div>
+    </div>
+    <div class="card py-2" style="width: 28rem;">
+      <div class="card-body">
+        <p class="mb-0 fs-6 text-center">Don't have an account? <%= link_to "Sign up", new_user_registration_path, class: "standard-link" %></p>
+      </div>
     </div>
   </div>
 </div>
