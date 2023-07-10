@@ -7,3 +7,6 @@ Layout/IndentationWidth:
 
 Style/Documentation:
   Enabled: false
+
+Lint/EmptyMethod:
+  Enabled: false

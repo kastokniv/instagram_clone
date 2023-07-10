@@ -10,6 +10,17 @@
     <%= favicon_link_tag asset_path("instagram_favicon.png") %>
   </head>
   <body>
-    <%= yield %>
+    <div class="row">
+      <div class="col">
+        <%= render "layouts/nav_sidebar" %>
+      </div>
+      <div class="col-7">
+        <%= yield %>
+      </div>
+      <div class="col-3">
+        3 of 3
+      </div>
+    </div>
+    <%= render "layouts/create_post_modal" %>
   </body>
 </html>
