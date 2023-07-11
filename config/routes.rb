@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
-  resources :posts, only: %i[create edit]
+  resources :posts, only: %i[create edit update]
 end

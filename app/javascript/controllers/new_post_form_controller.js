@@ -11,7 +11,6 @@ export default class extends Controller {
     e.preventDefault();
     this.photoFileTarget.click();
   }
-
   submitForm() {
     this.element.submit();
   }

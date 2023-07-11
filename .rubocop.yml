@@ -10,3 +10,8 @@ Style/Documentation:
 
 Lint/EmptyMethod:
   Enabled: false
+
+AllCops:
+  Exclude:
+    - "db/schema.rb"
+    - "db/migrate/*.rb"
