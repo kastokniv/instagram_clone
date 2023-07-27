@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ApplyFilterController from "./apply_filter_controller"
+application.register("apply-filter", ApplyFilterController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -12,3 +15,6 @@ application.register("new-post-form", NewPostFormController)
 
 import PhotoCropperController from "./photo_cropper_controller"
 application.register("photo-cropper", PhotoCropperController)
+
+import PhotoFilterController from "./photo_filter_controller"
+application.register("photo-filter", PhotoFilterController)

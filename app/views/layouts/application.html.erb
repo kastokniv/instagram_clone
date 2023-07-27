@@ -5,22 +5,30 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= favicon_link_tag asset_path("instagram_favicon.png") %>
+    <%= favicon_link_tag asset_path("instagram-icon.jpg") %>
+    <script src="https://cdn.jsdelivr.net/gh/silvia-odwyer/pixels.js/dist/Pixels.js"></script>
   </head>
+
   <body>
-    <div class="row">
-      <div class="col">
-        <%= render "layouts/nav_sidebar" %>
+    <% if user_signed_in? %>
+      <div class="row">
+        <div class="col">
+          <%= render "layouts/nav_sidebar" %>
+        </div>
+        <div class="col-5">
+          <%# Use to have col-7 instead of 5, 5 is more centered! %>
+          <%= yield %>
+        </div>
+        <div class="col-3">
+
+        </div>
       </div>
-      <div class="col-7">
-        <%= yield %>
-      </div>
-      <div class="col-3">
-        3 of 3
-      </div>
-    </div>
-    <%= render "layouts/create_post_modal" %>
+      <%= render "layouts/create_post_modal" %>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

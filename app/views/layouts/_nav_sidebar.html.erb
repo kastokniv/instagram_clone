@@ -1,11 +1,11 @@
-<div class="py-4 px-5">
+<div class="p-4 px-5">
   <div class="mb-5">
     <%= link_to root_path do %>
-      <%= image_tag "instagram-sidebar-logo.png", width: 103 %>
+      <%= image_tag "instagram-sidebar-logo.png", width: "103" %>
     <% end %>
   </div>
   <div class="mb-4">
-    <%= link_to "", data: { "bs-toggle"=>"modal", "bs-target"=>"#new-post-modal" }, class: "sidebar-link" do %>
+    <%= link_to "", data: { "bs-toggle" => "modal", "bs-target" => "#new-post-modal" }, class: "sidebar-link" do %>
       <div class="d-flex align-items-center">
         <%= image_tag "icons/more.png", width: "24", class: "me-3" %>
         Create
@@ -13,6 +13,6 @@
     <% end %>
   </div>
   <div>
-    <%= link_to "Log Out", destroy_user_session_path, data: { "turbo-method": "delete" } %>
+    <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": "delete" } %>
   </div>
 </div>
